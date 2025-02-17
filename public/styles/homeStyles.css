@@ -18,15 +18,4 @@
   animation: slideIn ease-out 0.5s;
 }
 
-.section-background {
-  background: rgb(139, 139, 139);
-  background: linear-gradient(
-    90deg,
-    rgba(139, 139, 139, 1) 0%,
-    rgba(187, 187, 187, 1) 18%,
-    rgba(251, 251, 251, 1) 81%
-  );
-  background-size: 180% 180%;
-  animation: gradient-animation 10 s ease infinite;
-}
 

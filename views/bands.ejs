@@ -16,12 +16,13 @@
   <body class="section-background">
     <%- include('partials/header.ejs') %>
 
-    <section class="py-4 text-center">
-        <img class="img-fluid"   src="/images/logo.svg"  style="max-width: 18%;" alt="logo">
+
+    <div class="px-4 py-4 my-0 text-center"> 
+        <img class="img-fluid py-2"   src="/images/logo.svg"  style="max-width: 18%;" alt="logo">
         <div class="row py-lg-3">
-          <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Horns up! Let’s talk metal bands!</h1>
-            <p class="lead text-body-secondary">
+          <div class="col-lg-8 col-md-8 mx-auto">
+            <h1 class="fw-bold text-body-emphasis">Horns up! Let’s talk metal bands!</h1>
+            <p class="lead mb-12 text-body-emphasis py-2">
               Here, you'll find discussions covering a wide range of metal
               bands—from classic heavy metal legends to the most extreme
               underground acts. Explore the articles below, share your thoughts in
@@ -31,12 +32,15 @@
               metal talk begin!
             </p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-              <form action = "/forum" method = "POST"><button type="submit" class="btn btn-dark btn-lg px-4 gap-3" >Read Articles</button></form>
-              <form action = "/about" method="GET"><button type="submit" class="btn btn-outline-secondary btn-lg px-4">Write your own Art</button></form>
+              <form action = "/forum" method = "POST"><button type="submit" class="btn btn-dark btn-lg px-4" >Read Articles</button></form>
+              <form action = "/about" method="GET"><button type="submit" class="btn btn-dark btn-lg px-4">Write your own Art</button></form>
             </div>
           </div>
         </div>
-      </section>
+    </div>
+
+
+
 
 
       <div class="album py-5 bg-body-tertiary">
