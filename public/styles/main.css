@@ -1,0 +1,33 @@
+.big-logo {
+    width: 200px;
+    height: 150px;
+    align-self: center;
+    align-items: center;
+}
+
+.nav-section{
+  border-radius: 5px;
+}
+
+.nav-section:hover{
+  background-color: #6c757d; /* Slightly lighter gray */
+  border-radius: 5px;
+}
+
+.section-background {
+  background: rgb(139, 139, 139);
+  background: linear-gradient(
+    90deg,
+    rgba(139, 139, 139, 1) 0%,
+    rgba(187, 187, 187, 1) 18%,
+    rgba(251, 251, 251, 1) 81%
+  );
+  background-size: 180% 180%;
+  animation: gradient-animation 10 s ease infinite;
+}
+
+.card-image{
+  height: 250px;
+  object-fit:fill; /* Ensures image covers the frame properly */
+}
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Band Directory</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles/bands.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body class="section-background">
+    <%- include('partials/header.ejs') %>
+
+    <section class="py-4 text-center">
+        <img class="img-fluid"   src="/images/logo.svg"  style="max-width: 18%;" alt="logo">
+        <div class="row py-lg-3">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Horns up! Let’s talk metal bands!</h1>
+            <p class="lead text-body-secondary">
+              Here, you'll find discussions covering a wide range of metal
+              bands—from classic heavy metal legends to the most extreme
+              underground acts. Explore the articles below, share your thoughts in
+              the comments, and if you have something to add, feel free to submit
+              your own discussion. Just keep in mind that all submissions go
+              through moderator approval before going live. Dive in and let the
+              metal talk begin!
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <form action = "/forum" method = "POST"><button type="submit" class="btn btn-dark btn-lg px-4 gap-3" >Read Articles</button></form>
+              <form action = "/about" method="GET"><button type="submit" class="btn btn-outline-secondary btn-lg px-4">Write your own Art</button></form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+    
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="card shadow-sm h-100">
+                <img src="images/logo.svg" class="card-img-top card-image" alt="lol" role="img" aria-label="Thumbnail image for lol" />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title"> looool lorem ipusm qunem berand</h5>
+                  <p class="card-text flex-grow-1">lorem discription motherfucker</p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto">
+                    <div class="btn-group">
+                      <a target="_blank" type="button" class="btn btn-sm btn-outline-secondary" href="#">View</a>
+                    </div>
+                    <small class="text-body-secondary">esor</small>
+                  </div>
+                </div>
+              </div>
+            </div>             
+
+
+          </div>
+        </div>
+      </div>
+
+    <h2 style="text-align: center">Bands</h2>
+
+    <ul>
+      <li><a href="#"> Band 1 </a></li>
+      <li><a href="#"> Band 1 </a></li>
+      <li><a href="#"> Band 1 </a></li>
+      <li><a href="#"> Band 1 </a></li>
+      <li><a href="#"> Band 1 </a></li>
+    </ul>
+
+    <%- include('partials/footer.ejs') %>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
