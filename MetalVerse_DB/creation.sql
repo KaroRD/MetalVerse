@@ -115,22 +115,91 @@ CREATE TABLE blast_beats (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
+-- Create badges table
+CREATE TABLE badges (
+    badge_id INT PRIMARY KEY AUTO_INCREMENT,
+    badge_name VARCHAR(100) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    bb_amount INT NOT NULL
+);
+
+
 -- Create user badges table
 CREATE TABLE user_badges (
     user_id INT NOT NULL,
-    badge VARCHAR(100) NOT NULL,
+    badge_id INT NOT NULL,
     earned_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (user_id, badge),
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+    PRIMARY KEY (user_id, badge_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+	FOREIGN KEY (badge_id) REFERENCES badges(badge_id) ON DELETE CASCADE    
 );
 
 
 
+alter table articles modify column article_type ENUM('Band', 'Album', 'Concert', 'General');
+
+alter table reacts rename areactions;
+
+create table treactions(
+	user_id INT NOT NULL,
+    thread_id INT NOT NULL,
+    type ENUM("like", "dislike") NOT NULL,
+    created_at DATETIME DEFAULT current_timestamp,
+    primary key(user_id, thread_id),
+    foreign key(user_id) references users(user_id) on delete cascade,
+    foreign key(thread_id) references forum_threads(thread_id) on delete cascade 
+);
+
+create table preactions(
+	user_id INT NOT NULL,
+    post_id INT NOT NULL,
+    type ENUM("like", "dislike") NOT NULL,
+    created_at DATETIME DEFAULT current_timestamp,
+    primary key(user_id, post_id),
+    foreign key(user_id) references users(user_id) on delete cascade,
+    foreign key(post_id) references forum_posts(post_id) on delete cascade 
+);
+
+-- corrections due to my stupidity 
+alter table forum_posts
+add likes INT default 0,
+add dislikes INT default 0;  
+
+alter table forum_threads
+add likes INT default 0,
+add dislikes INT default 0; 
+
+ALTER TABLE forum_threads MODIFY user_id INT DEFAULT NULL;
+ALTER TABLE forum_threads DROP FOREIGN KEY forum_threads_ibfk_1;
 
 
+ALTER TABLE forum_threads 
+DROP FOREIGN KEY user_id, 
+ADD CONSTRAINT user_id
+FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE SET NULL;
+
+SHOW CREATE TABLE forum_threads;
 
 
+ALTER TABLE forum_posts 
+DROP FOREIGN KEY forum_posts_ibfk_2, 
+ADD CONSTRAINT forum_posts_ibfk_2 
+FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE;
 
 
+SHOW CREATE TABLE forum_posts;
 
+ALTER TABLE forum_posts DROP FOREIGN KEY forum_posts_ibfk_1;
+ALTER TABLE forum_posts DROP FOREIGN KEY forum_posts_ibfk_2;
+	
+ALTER TABLE forum_posts
+ADD CONSTRAINT forum_posts_ibfk_1
+FOREIGN KEY (thread_id) REFERENCES forum_threads(thread_id) ON DELETE CASCADE;
+
+ALTER TABLE forum_posts
+ADD CONSTRAINT forum_posts_ibfk_2
+FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE;
+
+-- change level logic
+alter table blast_beats add column level int as (floor(sqrt(points/100))) virtual;
 
